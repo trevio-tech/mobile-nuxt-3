@@ -9,10 +9,19 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt-alt/auth": "^2.3.12",
+    "@nuxt-alt/http": "^1.6.4",
+    "@pinia/nuxt": "^0.4.8",
     "@trevio/ui": "https://github.com/trevio-tech/testui-3.git",
-    "nuxt": "^3.4.1"
+    "nuxt": "^3.4.1",
+    "pinia": "^2.0.34"
   },
   "devDependencies": {
-    "@types/node": "^18"
+    "@nuxtjs/tailwindcss": "^6.6.6",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/node": "^18",
+    "@vueuse/core": "^10.0.2",
+    "lodash-es": "^4.17.21",
+    "sass": "^1.62.0"
   }
 }
