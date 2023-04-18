@@ -1,4 +1,4 @@
-name: Mobile Nuxt 3
+name: Desktop Nuxt 3
 
 on:
   push:
@@ -39,10 +39,10 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/trevio-tech/mobile-3:latest
+          tags: ghcr.io/trevio-tech/desktop-3:latest
           build-args: DOT_ENV=${{ secrets.DOT_ENV }}
-          cache-from: type=local,src=/tmp/.buildx-cache-mobile-nuxt-3
-          cache-to: type=local,dest=/tmp/.buildx-cache-new-mobile-nuxt-3
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
         # This ugly bit is necessary if you don't want your cache to grow forever
         # till it hits GitHub's limit of 5GB.
         # Temp fix
@@ -50,5 +50,5 @@ jobs:
         # https://github.com/moby/buildkit/issues/1896
       - name: Move cache
         run: |
-          rm -rf /tmp/.buildx-cache-mobile-nuxt-3
-          mv /tmp/.buildx-cache-new-mobile-nuxt-3 /tmp/.buildx-cache-mobile-nuxt-3
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
