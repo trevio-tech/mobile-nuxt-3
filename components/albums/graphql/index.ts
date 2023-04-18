@@ -1,0 +1,1 @@
+export { ALBUM_CARD } from './queries'

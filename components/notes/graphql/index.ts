@@ -1,0 +1,1 @@
+export { NOTE_CARD } from './queries'

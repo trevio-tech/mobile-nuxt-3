@@ -1,0 +1,1 @@
+export { QUESTION_CARD } from './queries'

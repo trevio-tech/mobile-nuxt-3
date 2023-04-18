@@ -1,0 +1,1 @@
+export { REVIEW_CARD } from './queries'
