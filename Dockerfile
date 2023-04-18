@@ -6,7 +6,7 @@ FROM base AS dependencies
 
 WORKDIR /app
 COPY package.json yarn.lock ./
-RUN apk add git \
+RUN apk add git python3 \
     && yarn install --production \
     && yarn upgrade @trevio/ui
 
