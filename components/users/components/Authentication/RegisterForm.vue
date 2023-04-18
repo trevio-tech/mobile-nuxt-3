@@ -20,11 +20,12 @@
 
     <FormField name="is_company" class="mt-4">
       <div class="flex items-center space-x-2">
-        <Checkbox v-model="form.is_company" :value="true" id="is-company">
+        <label for="is-company">
+          <input type="checkbox" v-model="form.is_company" :value="true" id="is-company" />
           Бизнес-аккаунт
-        </Checkbox>
+        </label>
         <HelpCircle
-            @click="overlay.show(defineAsyncComponent(() => import('~/components/modules/users/components/AboutBusinessAccountDialog.vue')))"
+            @click="overlay.show(defineAsyncComponent(() => import('~/components/users/components/Authentication/AboutBusinessAccountDialog.vue')))"
             class="w-4 h-4 text-gray-400 hover:text-blue-500 cursor-pointer" />
       </div>
     </FormField>
