@@ -46,7 +46,7 @@ const config = {
   },
 }
 
-if (process.env.ENV != 'production') {
+if (process.env.NODE_ENV != 'production') {
   config.alias = {
     '@trevio/ui': resolve(`${process.env.UI}/src/index.ts`),
   }
