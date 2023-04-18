@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "@trevio/mobile",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -8,9 +8,11 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "dependencies": {
+    "@trevio/ui": "https://github.com/trevio-tech/testui-3.git",
+    "nuxt": "^3.4.1"
+  },
   "devDependencies": {
-    "@types/node": "^18",
-    "nuxt": "^3.4.1",
-    "@trevio/ui": "https://github.com/trevio-tech/testui-3.git"
+    "@types/node": "^18"
   }
 }
