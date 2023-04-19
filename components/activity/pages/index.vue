@@ -1,10 +1,10 @@
 <template>
   <NuxtLayout>
     <div class="space-y-2">
-      <ContentCard v-for="item in items" :key="item.id" :content="item" />
-      <div ref="more" class="p-2 text-center text-sm">
-        {{ isFetching ? 'Загружаю...' : '' }}
-      </div>
+      <ContentCard v-for="item in store.items" :key="item.id" :content="item" />
+    </div>
+    <div v-if="store.items.length" ref="more" class="py-2 text-center text-sm">
+      {{ isFetching ? 'Загружаю...' : '' }}
     </div>
   </NuxtLayout>
 </template>
@@ -13,17 +13,41 @@
 import ContentCard from '~/components/_common/Content/ContentCard.vue'
 import { FEED } from '~/components/activity/graphql'
 import { shallowRef } from 'vue'
-import { useRoute } from '#imports'
+import { useRouter } from '#imports'
 import { usePageQuery } from '@trevio/ui'
 import { useIntersectionObserver } from '@vueuse/core'
+import { useActivityStore } from '~/components/activity/store'
 
-const route = useRoute()
-const items = shallowRef([])
-const page = shallowRef(1)
-const more = shallowRef()
+const router = useRouter()
+const store = useActivityStore()
+
 const isFetching = shallowRef()
+const more = shallowRef()
 
-const getActivity = async () => {
+router.beforeEach(async (to, from) => {
+  store.$patch({
+    previousRouteName: from.name
+  })
+})
+
+if (store.previousRouteName === 'activity.new') {
+  store.resetItems()
+}
+
+if (store.items.length === 0) {
+  await getActivity()
+}
+
+useIntersectionObserver(
+  more,
+  async ([{ isIntersecting }]) => {
+    if (isIntersecting) {
+      await getActivity()
+    }
+  }
+)
+
+async function getActivity() {
   if (isFetching.value) return
 
   isFetching.value = true
@@ -38,27 +62,16 @@ const getActivity = async () => {
         }
       `,
       variables: {
-        page: page.value++,
-        is_timeline: route.name === 'activity.new'
+        page:        store.page,
+        is_timeline: router.currentRoute.name === 'activity.new',
       }
     })
 
-    items.value = [...items.value, ...data.activity]
+    store.setItems(data.activity)
   } catch (error) {
     console.log(error)
   } finally {
     isFetching.value = false
   }
 }
-
-await getActivity()
-
-useIntersectionObserver(
-  more,
-  async ([{ isIntersecting }]) => {
-    if (isIntersecting) {
-      await getActivity()
-    }
-  }
-)
 </script>

@@ -1,8 +1,10 @@
 import { defineNuxtPlugin } from '#imports'
 import { watch } from 'vue'
 import { useSubscriptionsStore, usePageQuery } from '@trevio/ui'
+
 export default defineNuxtPlugin(async (nuxtApp) => {
   const subscriptionsStore = useSubscriptionsStore()
+
   const initialState = async (loggedIn) => {
     try {
       const queries = []
@@ -16,28 +18,31 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         `)
       }
 
-      const query = `
+      if (queries.length) {
+        const query = `
         query initialState {
-          ${queries.join(',')}
+          ${queries.join('\n')}
         }
       `
 
-      const { data } = await usePageQuery({
-        query,
-      }, {
-        key: 'initial-state'
-      })
+        const {data} = await usePageQuery({
+          query,
+        }, {
+          key: 'initial-state'
+        })
 
-      if (loggedIn) {
-        if (data.subscriptions.length) {
-          subscriptionsStore.$patch({
-            subscriptions: data.subscriptions
-                .reduce((accumulator, currentValue) => ({ ...accumulator, [currentValue.model_type + currentValue.model_id]: true}), {})
-          })
+        if (loggedIn) {
+          if (data.subscriptions.length) {
+            subscriptionsStore.$patch({
+              subscriptions: data.subscriptions
+                  .reduce((accumulator, currentValue) => ({
+                    ...accumulator,
+                    [currentValue.model_type + currentValue.model_id]: true
+                  }), {})
+            })
+          }
         }
       }
-
-      console.log('Initial state')
     } catch (error) {
       console.log(error)
     }

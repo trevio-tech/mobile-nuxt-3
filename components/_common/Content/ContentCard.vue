@@ -1,7 +1,7 @@
 <template>
   <article class="border overflow-hidden rounded-lg shadow-sm">
-    <NuxtLink v-if="content.cover" to="/">
-      <img :src="content.cover?.url?.default" :alt="content.title" />
+    <NuxtLink v-if="content.cover" :to="to" class="aspect-video">
+      <img :src="content.cover?.url?.default" :alt="content.title" class="object-cover" />
     </NuxtLink>
     <div class="bg-white p-4">
       <NuxtLink :to="to" class="flex items-center space-x-2 mb-4">
