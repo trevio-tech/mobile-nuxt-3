@@ -1,1 +1,1 @@
-export { ALBUM_CARD } from './queries'
+export * from './queries'

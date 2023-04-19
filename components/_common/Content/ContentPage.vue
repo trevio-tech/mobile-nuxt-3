@@ -14,9 +14,20 @@
 
     <h2 class="font-semibold mb-4 text-xl">{{ content.title }}</h2>
 
-    <ImageViewer>
-      <div class="prose prose-sm" v-html="content.text"></div>
+    <ImageViewer closable>
+      <slot name="body">
+          <div class="prose prose-sm" v-html="content.text"></div>
+      </slot>
     </ImageViewer>
+
+<!--    <div v-if="content.tags && content.tags.length" class="space-x-2 mt-4 text-slate-400 text-sm truncate">
+      <NuxtLink
+        v-for="tag in content.tags"
+        :key="tag.id"
+        :title="tag.name"
+        :to="{name: 'tags', query: {tag: tag.name}}">#{{ tag.name }}
+      </NuxtLink>
+    </div>-->
   </article>
 </template>
 
