@@ -6,7 +6,7 @@
         <div class="text-sm font-medium truncate">{{ content.user.name }}</div>
       </NuxtLink>
       <SubscriptionButton v-slot="{ onSubmit, isSubscribed, isLoading }" model-type="users" :model-id="content.user_id">
-        <button :loading="isLoading" @click="onSubmit('users', entry.user_id)" type="button" class="text-sm">
+        <button :loading="isLoading" @click="onSubmit('users', content.user_id)" type="button" class="text-sm">
           {{ isSubscribed ? 'Отписаться' : 'Подписаться' }}
         </button>
       </SubscriptionButton>
