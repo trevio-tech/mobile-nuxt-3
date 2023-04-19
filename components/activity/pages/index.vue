@@ -3,7 +3,7 @@
     <div class="space-y-2">
       <ContentCard v-for="item in store.items" :key="item.id" :content="item" />
     </div>
-    <div v-if="store.items.length" ref="more" class="py-2 text-center text-sm">
+    <div v-if="store.items.length" ref="more" class="mt-4 text-center text-sm">
       {{ isFetching ? 'Загружаю...' : '' }}
     </div>
   </NuxtLayout>
