@@ -40,3 +40,41 @@ export const NOTE_CARD = `
     category_id
   }
 `
+
+export const NOTE = `
+  note(id: $id) {
+    id
+    user_id
+    place_id
+    title
+    short_text: text(words: 20)
+    text
+    can
+    system_name
+    likes_count
+    published_at(format: "relative")
+    cover {
+      id
+      url(presets: "default@resize:fill:560:320")
+    }
+    tags {
+      id
+      name
+    }
+    bookmarks {
+      user_id
+      model_id
+      model_type
+      category_id
+    }
+    like {
+      is_liked
+    }
+    user {
+      id
+      name
+      avatar
+      description
+    }
+  }
+`

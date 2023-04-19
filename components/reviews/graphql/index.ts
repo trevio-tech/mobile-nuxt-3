@@ -1,1 +1,1 @@
-export { REVIEW_CARD } from './queries'
+export { REVIEW_CARD, REVIEW } from './queries'

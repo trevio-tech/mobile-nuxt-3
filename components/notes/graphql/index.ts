@@ -1,1 +1,1 @@
-export { NOTE_CARD } from './queries'
+export { NOTE_CARD, NOTE } from './queries'

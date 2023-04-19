@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import ContentCard from '~/components/_common/ContentCard/ContentCard.vue'
+import ContentCard from '~/components/_common/Content/ContentCard.vue'
 import { FEED } from '~/components/activity/graphql'
 import { shallowRef } from 'vue'
 import { useRoute } from '#imports'
