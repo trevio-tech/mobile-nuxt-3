@@ -1,3 +1,4 @@
+import tailwindTypography from '@tailwindcss/typography'
 import { createResolver } from '@nuxt/kit'
 
 const { resolve } = createResolver(import.meta.url)
@@ -44,6 +45,11 @@ const config = {
       }
     }
   },
+  tailwindcss: {
+    config: {
+      plugins: [tailwindTypography]
+    }
+  }
 }
 
 if (process.env.NODE_ENV != 'production') {

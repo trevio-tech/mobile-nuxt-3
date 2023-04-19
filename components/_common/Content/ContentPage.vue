@@ -12,7 +12,7 @@
       </SubscriptionButton>
     </header>
 
-    <h2 class="font-semibold mb-2 text-lg">{{ content.title }}</h2>
+    <h2 class="font-semibold mb-4 text-xl">{{ content.title }}</h2>
 
     <ImageViewer>
       <div class="prose prose-sm" v-html="content.text"></div>
