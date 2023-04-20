@@ -13,9 +13,9 @@
         <SearchPlace :model-value="form.place" @update:modelValue="form.place_id = $event.id" />
       </FormField>
 
-<!--      <FormField name="input.tags" label="Теги" id="tags">
-        <InputCustomTags v-model="form.tags" :set-errors="setErrors" />
-      </FormField>-->
+      <FormField name="input.tags" label="Теги" id="tags">
+        <InputTags v-model="form.tags" />
+      </FormField>
 
 <!--      <FormField v-if="data.travels.length" name="input.travel_id" label="Хотите добавить в путешествие?" id="travel">
         <TravelListField v-model="form.travel_id" :travels="data.travels" />
@@ -32,7 +32,7 @@
 <script setup>
 import pick from 'lodash.pick'
 import { CREATE_NOTE, UPDATE_NOTE, NOTE_FORM } from '../graphql'
-// import { InputCustomTags } from '~/components/wrappers'
+import InputTags from '~/components/_common/InputTags.vue'
 import { ref } from 'vue'
 import { definePageMeta, useRoute, useRouter, useNuxtApp } from '#imports'
 // import TravelListField from '~/components/modules/travels/components/TravelListField.vue'
