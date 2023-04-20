@@ -17,9 +17,9 @@
         <InputTags v-model="form.tags" />
       </FormField>
 
-<!--      <FormField v-if="data.travels.length" name="input.travel_id" label="Хотите добавить в путешествие?" id="travel">
-        <TravelListField v-model="form.travel_id" :travels="data.travels" />
-      </FormField>-->
+      <FormField v-if="data.travels.length" name="input.travel_id" label="Хотите добавить в путешествие?" id="travel">
+        <SelectTravel v-model="form.travel_id" :travels="data.travels" />
+      </FormField>
 
       <div class="flex justify-end space-x-2">
         <Button :loading="isLoading" type="submit" @click="form.is_draft = true">{{ isEdit ? 'Сохранить' : 'Создать' }} черновик</Button>
@@ -30,19 +30,21 @@
 </template>
 
 <script setup>
+import InputTags from '~/components/_common/InputTags.vue'
+import SelectTravel from '~/components/travels/components/SelectTravel.vue'
 import pick from 'lodash.pick'
 import { CREATE_NOTE, UPDATE_NOTE, NOTE_FORM } from '../graphql'
-import InputTags from '~/components/_common/InputTags.vue'
-import { ref } from 'vue'
-import { definePageMeta, useRoute, useRouter, useNuxtApp } from '#imports'
-// import TravelListField from '~/components/modules/travels/components/TravelListField.vue'
 import { TipTap, usePageQuery, SearchPlace, Input, Form, FormField, Button } from '@trevio/ui'
+import { definePageMeta, useRoute, useRouter } from '#imports'
+import { useAuth } from '#auth/runtime/composables'
+import { ref } from 'vue'
 
 definePageMeta({
   middleware: 'auth'
 })
 
 const route = useRoute()
+const auth = useAuth()
 
 const form = ref({
   place_id: null,
@@ -63,8 +65,6 @@ const isEdit = noteId > 0
 const danger = ref(false)
 const loading = ref(false)
 
-const app = useNuxtApp()
-
 const { data } = await usePageQuery({
   query: `
     query(${isEdit ? '$id: ID!, ' : ''}$user_id: ID) {
@@ -81,7 +81,7 @@ const { data } = await usePageQuery({
   `,
   variables: {
     id: noteId,
-    user_id: app.$auth.user.id
+    user_id: auth.user.id
   }
 })
 
