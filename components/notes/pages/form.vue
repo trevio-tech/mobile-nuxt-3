@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout :heading="`${isEdit ? 'Редактирование' : 'Создание'} заметки`">
-    <Form :onSubmit="onSubmit" v-slot="{ isLoading }" class="space-y-4">
+    <Form :submit="onSubmit" v-slot="{ isLoading }" class="space-y-4">
       <FormField name="input.title" label="Заголовок" required v-slot="{ hasError }">
         <Input v-model="form.title" placeholder="Введите заголовок" :has-error="hasError" />
       </FormField>
