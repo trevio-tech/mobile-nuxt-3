@@ -28,10 +28,13 @@
         :to="{name: 'tags', query: {tag: tag.name}}">#{{ tag.name }}
       </NuxtLink>
     </div>-->
+
+    <ContentFooter class="pt-4" :content="content" />
   </article>
 </template>
 
 <script setup>
+import ContentFooter from '~/components/_common/Content/partials/ContentFooter.vue'
 import { SubscriptionButton, useSubscriptionsStore, ImageViewer } from '@trevio/ui'
 
 const store = useSubscriptionsStore()

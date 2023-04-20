@@ -1,5 +1,5 @@
 <template>
-  <footer class="px-4 pb-4">
+  <footer>
     <Like
       :count="content.likes_count"
       :is-liked="content.like?.is_liked"
