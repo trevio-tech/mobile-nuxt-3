@@ -1399,13 +1399,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@nuxt-alt/auth@^2.3.12":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@nuxt-alt/auth/-/auth-2.4.0.tgz#567515145dd6c17606a4897316c28f691e448ea6"
-  integrity sha512-4QeflRicza+FRJTaxxl/SaxUESUPXKz3fT2DOcfBQgdCzwrtnNNaWa10jk+UeS2WHufys9/mK2zRPGam2dkw9g==
+"@nuxt-alt/auth@2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@nuxt-alt/auth/-/auth-2.3.11.tgz#f05fd7983c1ac8e1c948e2d6ae06b5c82c2463fb"
+  integrity sha512-Zbr4hvKDBIkykPMrDFmRHepy3+ig7Mtpu5lOjaA5zELMZCfnkJLmjXbjiCgf0SmAPx90HmUeghqnBxzAr1quhg==
   dependencies:
     "@nuxt-alt/http" latest
-    "@nuxt/kit" "^3.4.1"
+    "@nuxt/kit" "^3.3.3"
     "@pinia/nuxt" latest
     body-parser latest
     cookie-es latest
@@ -1413,7 +1413,6 @@
     jwt-decode latest
     ohash latest
     pathe latest
-    pinia-plugin-persistedstate "^3.1.0"
     requrl latest
 
 "@nuxt-alt/http@^1.6.4", "@nuxt-alt/http@latest":
@@ -1431,7 +1430,7 @@
   resolved "https://registry.yarnpkg.com/@nuxt/devalue/-/devalue-2.0.0.tgz#c7bd7e9a516514e612d5d2e511ffc399e0eac322"
   integrity sha512-YBI/6o2EBz02tdEJRBK8xkt3zvOFOWlLBf7WKYGBsSYSRtjjgrqPe2skp6VLLmKx5WbHHDNcW+6oACaurxGzeA==
 
-"@nuxt/kit@3.4.1", "@nuxt/kit@^3.0.0", "@nuxt/kit@^3.3.1", "@nuxt/kit@^3.3.2", "@nuxt/kit@^3.3.3", "@nuxt/kit@^3.4.1":
+"@nuxt/kit@3.4.1", "@nuxt/kit@^3.0.0", "@nuxt/kit@^3.3.1", "@nuxt/kit@^3.3.2", "@nuxt/kit@^3.3.3":
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.4.1.tgz#18608db1ec28c9cf216c41d86535882cf8e838ec"
   integrity sha512-VeH26umZW6Rf4F1QX9nTIuTBp6HeL/MgmKY3+FgQiLD07afgFTLUJZohVE5xU7hb66zCnYvwKxa3JpjXFJZrhQ==
@@ -7377,10 +7376,15 @@ ofetch@^1.0.1, ofetch@latest:
     node-fetch-native "^1.0.2"
     ufo "^1.1.0"
 
-ohash@^1.0.0, ohash@latest:
+ohash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ohash/-/ohash-1.0.0.tgz#e6ab04851ef9a479beb6e8a2457ff0d3ccf77371"
   integrity sha512-kxSyzq6tt+6EE/xCnD1XaFhCCjUNUaz3X30rJp6mnjGLXAAvuPFqohMdv0aScWzajR45C29HyBaXZ8jXBwnh9A==
+
+ohash@latest:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/ohash/-/ohash-1.1.1.tgz#7f34db6fb2852f4cd96afffc595de68d6d9f80f1"
+  integrity sha512-N9UDJn2IV6oO6pNclJ80tRXraNNJqw/asscr3Lu7+ibRQdEswejJuuXNclMQTJVTsVhQs+ZJThVziy6t2v2KXA==
 
 on-finished@2.4.1, on-finished@^2.3.0:
   version "2.4.1"
@@ -7678,11 +7682,6 @@ pify@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
-
-pinia-plugin-persistedstate@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/pinia-plugin-persistedstate/-/pinia-plugin-persistedstate-3.1.0.tgz#eada2b61ecd478fce88e490a685210415cd7a1b4"
-  integrity sha512-8UN+vYMEPBdgNLwceY08mi5olI0wkYaEb8b6hD6xW7SnBRuPydWHlEhZvUWgNb/ibuf4PvufpvtS+dmhYjJQOw==
 
 pinia@>=2.0.34, pinia@^2.0.33, pinia@^2.0.34:
   version "2.0.34"

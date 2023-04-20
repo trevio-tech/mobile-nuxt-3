@@ -18,10 +18,14 @@
         {{ content.text }}
       </NuxtLink>
     </div>
+
+    <ContentFooter :content="content" />
   </article>
 </template>
 
 <script setup>
+import ContentFooter from '~/components/_common/Content/partials/ContentFooter.vue'
+
 const props = defineProps({
   content: {
     type:     Object,
