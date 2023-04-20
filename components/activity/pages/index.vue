@@ -1,5 +1,12 @@
 <template>
   <NuxtLayout>
+    <ul class="activity-filter">
+      <li><NuxtLink to="/">Мои лента</NuxtLink></li>
+      <li>·</li>
+      <li><NuxtLink to="/new">Все записи</NuxtLink></li>
+      <li>·</li>
+      <li><NuxtLink to="/top">Топ</NuxtLink></li>
+    </ul>
     <div class="space-y-2">
       <ContentCard v-for="item in store.items" :key="item.id" :content="item" />
     </div>
@@ -30,7 +37,10 @@ router.beforeEach(async (to, from) => {
   })
 })
 
-if (store.previousRouteName === 'activity.new') {
+// Если ходим между фильтром в активности, то сбрасываем состояние ленты.
+// В остальных случаях состояние сохраняется и возвращаясь в ленту,
+// пользователь остается не том же месте.
+if (store.previousRouteName.startsWith('activity')) {
   store.resetItems()
 }
 
@@ -63,7 +73,7 @@ async function getActivity() {
       `,
       variables: {
         page:        store.page,
-        is_timeline: router.currentRoute.name === 'activity.new',
+        is_timeline: router.currentRoute.value.name === 'activity.new',
       }
     })
 
@@ -75,3 +85,12 @@ async function getActivity() {
   }
 }
 </script>
+
+<style>
+.activity-filter {
+  @apply flex items-center space-x-2 text-sm mb-4;
+}
+.activity-filter .router-link-active {
+  @apply underline text-blue-500;
+}
+</style>
