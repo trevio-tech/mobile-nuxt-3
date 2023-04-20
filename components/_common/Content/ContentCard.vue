@@ -18,7 +18,7 @@
           {{ content.title }}
         </NuxtLink>
       </h2>
-      <NuxtLink v-if="content.text" :to="to" class="block text-sm">
+      <NuxtLink v-if="content.text" :to="to" class="block text-sm overflow-hidden">
         {{ content.text }}
       </NuxtLink>
     </div>

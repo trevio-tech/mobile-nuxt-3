@@ -5,7 +5,7 @@
     </NuxtLink>
 
     <div v-if="$auth.loggedIn" class="ml-auto flex items-center h-full">
-      <button @click="overlay.show(TheContentCreationDialog)">
+      <button @click="overlay.show(TheContentCreationDialog)" class="h-full focus:bg-slate-100 p-4 flex items-center">
         <PlusCircle class="w-5 h-5" />
       </button>
       <DropdownMenu placement="bottom-end" class="ml-auto h-full">

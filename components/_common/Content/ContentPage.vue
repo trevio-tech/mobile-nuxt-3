@@ -16,7 +16,7 @@
 
     <ImageViewer closable>
       <slot name="body">
-          <div class="prose prose-sm" v-html="content.text"></div>
+          <div class="prose prose-sm overflow-hidden" v-html="content.text"></div>
       </slot>
     </ImageViewer>
 
