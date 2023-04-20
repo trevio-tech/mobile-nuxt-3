@@ -5,12 +5,12 @@
     </NuxtLink>
 
     <div class="bg-white p-4">
-      <header class="flex items-center justify-between space-x-4 mb-4">
-        <NuxtLink :to="to" class="flex items-center space-x-2">
+      <header class="flex flex-row items-center justify-between space-x-4 mb-4">
+        <NuxtLink :to="to" class="basis-2/3 flex items-center space-x-2 overflow-hidden">
           <img :src="content.user.avatar" :alt="content.user.name" class="w-6 h-6 rounded-full" />
           <div class="text-sm font-medium truncate">{{ content.user.name }}</div>
         </NuxtLink>
-        <div class="text-sm text-gray-500">{{ content.published_at }}</div>
+        <div class="basis-1/3 text-sm text-gray-500 whitespace-nowrap">{{ content.published_at }}</div>
       </header>
 
       <h2 class="font-semibold mb-2">

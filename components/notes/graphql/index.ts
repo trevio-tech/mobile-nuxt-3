@@ -1,1 +1,2 @@
-export { NOTE_CARD, NOTE } from './queries'
+export * from './queries'
+export * from './mutations'

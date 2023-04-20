@@ -1,3 +1,5 @@
+import { PLACE_WITH_PARENTS_FIELDS } from '~/components/places/graphql'
+
 export const NOTE_CARD = `
   id
   title
@@ -76,5 +78,22 @@ export const NOTE = `
       avatar
       description
     }
+  }
+`
+
+export const NOTE_FORM = `
+  id
+  place_id
+  travel_id
+  cover_id
+  title
+  text(raw: true)
+  is_draft
+  tags {
+    id
+    name
+  }
+  place {
+    ${PLACE_WITH_PARENTS_FIELDS}
   }
 `
