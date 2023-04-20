@@ -1,8 +1,8 @@
 <template>
   <NuxtLayout>
     <ul class="activity-filter">
-      <li><NuxtLink to="/">Мои лента</NuxtLink></li>
-      <li>·</li>
+      <li v-if="$auth.loggedIn"><NuxtLink to="/">Мои лента</NuxtLink></li>
+      <li v-if="$auth.loggedIn">·</li>
       <li><NuxtLink to="/new">Все записи</NuxtLink></li>
       <li>·</li>
       <li><NuxtLink to="/top">Топ</NuxtLink></li>
@@ -40,7 +40,7 @@ router.beforeEach(async (to, from) => {
 // Если ходим между фильтром в активности, то сбрасываем состояние ленты.
 // В остальных случаях состояние сохраняется и возвращаясь в ленту,
 // пользователь остается не том же месте.
-if (store.previousRouteName.startsWith('activity')) {
+if (store.previousRouteName && store.previousRouteName.startsWith('activity')) {
   store.resetItems()
 }
 
