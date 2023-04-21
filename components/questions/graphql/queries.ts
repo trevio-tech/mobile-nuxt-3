@@ -1,3 +1,5 @@
+import { PLACE_WITH_PARENTS_FIELDS } from '~/components/places/graphql'
+
 export const QUESTION_CARD = `
   id
   title
@@ -39,5 +41,46 @@ export const QUESTION_CARD = `
   }
   like {
     is_liked
+  }
+`
+
+export const QUESTION = `
+  id
+  user_id
+  place_id
+  title
+  text
+  system_name
+  likes_count
+  bookmarks {
+    category_id
+  }
+  user {
+    id
+    name
+    avatar
+  }
+  tags {
+    id
+    name
+  }
+  like {
+    is_liked
+  }
+`
+
+export const QUESTION_FORM = `
+  id
+  place_id
+  travel_id
+  title
+  text(raw: true)
+  is_draft
+  tags {
+    id
+    name
+  }
+  place {
+    ${PLACE_WITH_PARENTS_FIELDS}
   }
 `

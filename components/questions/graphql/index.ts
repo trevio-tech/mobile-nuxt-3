@@ -1,1 +1,2 @@
-export { QUESTION_CARD } from './queries'
+export * from './queries'
+export * from './mutations'

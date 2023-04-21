@@ -1,11 +1,11 @@
 <template>
   <article class="bg-white">
     <header class="flex items-center justify-between space-x-4 mb-4">
-      <NuxtLink :to="to" class="flex items-center space-x-2">
+      <NuxtLink :to="to" class="flex items-center space-x-2 overflow-hidden">
         <img :src="content.user.avatar" :alt="content.user.name" class="w-6 h-6 rounded-full" />
         <div class="text-sm font-medium truncate">{{ content.user.name }}</div>
       </NuxtLink>
-      <NuxtLink v-if="isIam" :to="editLink">Изменить</NuxtLink>
+      <NuxtLink v-if="isIam" :to="editLink">Редактировать</NuxtLink>
       <SubscriptionButton v-else v-slot="{ onSubmit, isSubscribed, isLoading }" model-type="users" :model-id="content.user_id">
         <button :loading="isLoading" @click="onSubmit('users', content.user_id)" type="button" class="text-sm">
           {{ isSubscribed ? 'Отписаться' : 'Подписаться' }}
