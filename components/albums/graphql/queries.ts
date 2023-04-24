@@ -73,3 +73,24 @@ export const ALBUM = `
     ${PLACE_WITH_PARENTS_FIELDS}
   }
 `
+
+export const ALBUM_FORM = `
+  id
+  place_id
+  travel_id
+  title
+  text
+  is_draft
+  image_order
+  images {
+    id
+    url(presets: "default@resize:fill:126:126")
+  }
+  tags {
+    id
+    name
+  }
+  place {
+    ${PLACE_WITH_PARENTS_FIELDS}
+  }
+`

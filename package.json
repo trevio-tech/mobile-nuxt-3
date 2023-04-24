@@ -14,7 +14,8 @@
     "@pinia/nuxt": "^0.4.8",
     "@trevio/ui": "https://github.com/trevio-tech/testui-3.git",
     "nuxt": "3.4.1",
-    "pinia": "^2.0.34"
+    "pinia": "^2.0.34",
+    "vuedraggable": "^2.24.3"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.6.6",

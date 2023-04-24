@@ -21,6 +21,10 @@
       <NuxtLink v-if="content.text" :to="to" class="block text-sm overflow-hidden">
         {{ content.text }}
       </NuxtLink>
+
+      <div v-if="content.place" class="mt-4">
+        {{ content.place.full_name }}
+      </div>
     </div>
 
     <ContentFooter class="px-4 pb-4" :content="content" />

@@ -1,5 +1,5 @@
 <template>
-  <header class="h-[48px] flex-shrink-0 flex items-center bg-white shadow-sm sticky top-0">
+  <header class="h-[48px] flex-shrink-0 flex items-center bg-white shadow-sm sticky top-0 z-10">
     <NuxtLink to="/" class="flex items-center px-4 h-full">
       <img src="/images/logotype.svg" alt="Trevio.ru - о путешествиях" class="w-auto h-[24px]" />
     </NuxtLink>
