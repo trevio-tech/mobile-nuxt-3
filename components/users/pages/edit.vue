@@ -49,6 +49,7 @@ import { PLACE_WITH_PARENTS_FIELDS } from '~/components/places/graphql'
 import { useAuth } from '#auth/runtime/composables'
 import { definePageMeta } from '#imports'
 import { toast } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
 
 definePageMeta({
   middleware: 'auth'
