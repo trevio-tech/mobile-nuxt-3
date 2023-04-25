@@ -1,24 +1,9 @@
 <template>
-  <NuxtLayout heading="Пользователь">
-    <Html>
-      <Head>
-        <Title>{{ user.name }} - Пользователи</Title>
-        <Meta name="description" :content="user.description" />
-      </Head>
-    </Html>
-
-    <template #hero>
-      <UserHero v-if="user" :user="user" />
-    </template>
-
-    <template #sidebar>
-      тут сайдбар
-    </template>
-
+  <NuxtLayout>
     <ContentList :userId="route.params.userId" :fields="NESTED_USER_CONTENT" order-by="date">
       <template v-slot="{ items, isMore, isLoading, onFetch }">
         <div class="space-y-4">
-          <ContentCardRectangle v-for="item in items" :key="item.id" :entry="item" />
+          <ContentCard v-for="item in items" :key="item.id" :content="item" />
           <Button v-if="isMore" :loading="isLoading" @click="onFetch" class="w-full" variant="secondary">Показать еще</Button>
         </div>
       </template>
@@ -27,14 +12,10 @@
 </template>
 
 <script setup>
-import UserHero from '~/components/modules/users/components/UserHero.vue'
-import { ContentCardRectangle } from '~/components'
-import { ContentList } from '@trevio/ui'
-import { LINK } from '~/components/modules/links/graphql'
-import { NESTED_USER_CONTENT } from '~/components/modules/users/graphql'
-import { USER } from '../graphql'
+import ContentCard from '~/components/_common/Content/ContentCard.vue'
+import { Button, ContentList, useOverlay, usePageQuery } from '@trevio/ui'
+import { USER, NESTED_USER_CONTENT } from '~/components/users/graphql'
 import { shallowRef } from 'vue'
-import { usePageQuery, useOverlay, Button } from '@trevio/ui'
 import { useRoute } from '#imports'
 
 const overlay = useOverlay()

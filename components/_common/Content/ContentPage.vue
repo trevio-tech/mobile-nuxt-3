@@ -1,7 +1,7 @@
 <template>
   <article class="bg-white">
     <header class="flex items-center justify-between space-x-4 mb-4">
-      <NuxtLink :to="to" class="flex items-center space-x-2 overflow-hidden">
+      <NuxtLink :to="{name: 'users.show', params: {userId: content.user.id}}" class="flex items-center space-x-2 overflow-hidden">
         <img :src="content.user.avatar" :alt="content.user.name" class="w-6 h-6 rounded-full" />
         <div class="text-sm font-medium truncate">{{ content.user.name }}</div>
       </NuxtLink>
