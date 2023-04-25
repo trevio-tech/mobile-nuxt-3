@@ -4,7 +4,7 @@
       <div id="banner" class="absolute top-0 left-0 w-full h-full pointer-events-none"></div>
       <div :style="styles" class="absolute top-0 left-0 w-full h-full pointer-events-none"></div>
 
-      <DropdownMenu placement="bottom-end" class="absolute right-0 top-0 p-4">
+      <DropdownMenu v-if="$auth.loggedIn" placement="bottom-end" class="absolute right-0 top-0 p-4">
         <template v-slot:default="{ isActive }">
           <Button variant="secondary" class="text-white bg-white/10">
             Изменить обложку
