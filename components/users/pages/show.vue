@@ -1,5 +1,6 @@
 <template>
   <NuxtLayout>
+    <UserHero :user="user" class="-mx-4 -mt-4" />
     <ContentList :userId="route.params.userId" :fields="NESTED_USER_CONTENT" order-by="date">
       <template v-slot="{ items, isMore, isLoading, onFetch }">
         <div class="space-y-4">
@@ -13,6 +14,7 @@
 
 <script setup>
 import ContentCard from '~/components/_common/Content/ContentCard.vue'
+import UserHero from '~/components/users/components/UserHero.vue'
 import { Button, ContentList, useOverlay, usePageQuery } from '@trevio/ui'
 import { USER, NESTED_USER_CONTENT } from '~/components/users/graphql'
 import { shallowRef } from 'vue'

@@ -1,6 +1,6 @@
 <template>
-  <div class="place-self-top">
-    <div class="bg-white rounded-lg shadow-md m-4">
+  <div class="p-4 w-full">
+    <div class="bg-white rounded-lg shadow-md">
       <header class="p-4 flex justify-between items-center p-4 rounded-t border-b border-slate-200">
         <h3 class="text-xl font-semibold text-slate-900 mr-4 truncate">
           {{ title }}
