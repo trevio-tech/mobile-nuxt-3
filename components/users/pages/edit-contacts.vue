@@ -7,7 +7,7 @@
         <Input v-model="url" type="url" placeholder="Вставьте ссылку" :has-error="hasError" />
       </FormField>
 
-      <Button :loading="isLoading" type="submit">Добавить</Button>
+      <Button :loading="isLoading" type="submit" class="w-full">Добавить</Button>
     </Form>
 
     <div v-if="links.length" class="mt-6">

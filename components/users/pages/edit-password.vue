@@ -15,7 +15,7 @@
 
       <hr class="-mx-4 border-gray-200">
 
-      <Button type="submit" :loading="isLoading">Сохранить</Button>
+      <Button type="submit" :loading="isLoading" class="w-full">Сохранить</Button>
     </Form>
   </NuxtLayout>
 </template>
