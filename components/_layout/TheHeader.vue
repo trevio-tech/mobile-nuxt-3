@@ -17,6 +17,7 @@
         <template v-slot:popper="{ hide }">
           <DropdownMenuItem :to="{name: 'users.show', params: {userId: $auth.user.id}}">Мой профиль</DropdownMenuItem>
           <DropdownMenuItem :to="{name: 'users.edit'}">Редактировать</DropdownMenuItem>
+          <DropdownMenuItem :to="{name: 'wallets.show'}">Кошелек</DropdownMenuItem>
           <DropdownMenuItem @click="$auth.logout()">Выход</DropdownMenuItem>
         </template>
       </DropdownMenu>
