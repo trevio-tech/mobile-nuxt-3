@@ -1,23 +1,19 @@
 <template>
   <NuxtLayout heading="Редактирование профиля">
-<!--    <ul>
-      <li><NuxtLink :to="{name: 'users.edit'}">Основные настройки</NuxtLink></li>
-      <li><NuxtLink :to="{name: 'users.edit.password'}">Смена пароля</NuxtLink></li>
-      <li><NuxtLink :to="{name: 'users.edit.contacts'}">Контакты</NuxtLink></li>
-    </ul>-->
+    <UserEditNav class="mb-4" />
+
     <Form :submit="onSubmit" v-slot="{ isLoading }" class="space-y-4">
       <FormField
-        name="name"
-        label="Отображаемое имя"
-        required
-        v-slot="{ hasError }">
+          name="name"
+          label="Отображаемое имя"
+          required
+          v-slot="{ hasError }">
         <Input v-model="form.name" placeholder="Ваш ник, имя и/или фамилия или название компании" :has-error="hasError" />
       </FormField>
 
       <FormField name="description" label="Описание" v-slot="{ hasError }">
         <Textarea v-model="form.description" rows="3" placeholder="Пара слов о себе" />
       </FormField>
-
 
       <FormField name="place_id" label="Откуда вы?" v-slot="{ hasError }">
         <SearchPlace v-model="form.place" @update:modelValue="form.place_id = $event.id" />
@@ -34,7 +30,7 @@
         <Input v-model="form.birthday" type="date" />
       </FormField>
 
-      <hr class="mb-4 -mx-4 border-gray-200">
+      <hr class="-mx-4 border-gray-200">
 
       <Button type="submit" :loading="isLoading" class="w-full">Сохранить</Button>
     </Form>
@@ -42,6 +38,7 @@
 </template>
 
 <script setup>
+import UserEditNav from '~/components/users/components/UserEditNav.vue'
 import { usePageQuery, SearchPlace, Button, Input, Form, FormField, Textarea } from '@trevio/ui'
 import { ref } from 'vue'
 import { UPDATE_USER } from '../graphql'
