@@ -32,7 +32,7 @@
       <Input v-model="link.title" placeholder="Введите название для ссылки" :has-error="hasError" />
     </FormField>
 
-    <Button type="submit">Сохранить</Button>
+    <Button type="submit" class="w-full">Сохранить</Button>
   </form>
 </template>
 
