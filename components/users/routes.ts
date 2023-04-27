@@ -7,7 +7,7 @@ export default [
   { path: '/me/edit/password', name: 'users.edit.password', file: 'edit-password'},
   { path: '/me/edit/contacts', name: 'users.edit.contacts', file: 'edit-contacts'},
   /*
-  { path: '/oauth/:provider/callback', name: 'users.callback', file: 'callback' },
+  { path: '/oauth/:provider/callback', name: 'users.callback', file: 'callback' },*/
   // Премиум аккаунт.
-  { path: '/premium', name: 'users.premium', file: 'premium' },*/
+  { path: '/premium', name: 'users.premium', file: 'premium' },
 ]

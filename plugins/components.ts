@@ -1,5 +1,5 @@
 import { defineNuxtPlugin } from '#imports'
-import { Button, Like, IsLoggedIn, RippleDirective, OverlayPlugin } from '@trevio/ui'
+import { Like, IsLoggedIn, RippleDirective, OverlayPlugin } from '@trevio/ui'
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   nuxtApp.vueApp.component('Like', Like)

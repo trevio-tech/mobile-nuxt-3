@@ -18,6 +18,8 @@
           <DropdownMenuItem :to="{name: 'users.show', params: {userId: $auth.user.id}}">Мой профиль</DropdownMenuItem>
           <DropdownMenuItem :to="{name: 'users.edit'}">Редактировать</DropdownMenuItem>
           <DropdownMenuItem :to="{name: 'wallets.show'}">Кошелек</DropdownMenuItem>
+          <DropdownMenuItem :to="{name: 'users.premium'}">Premium</DropdownMenuItem>
+          <DropdownMenuItem :to="{name: 'subscriptions'}">Подписки</DropdownMenuItem>
           <DropdownMenuItem @click="$auth.logout()">Выход</DropdownMenuItem>
         </template>
       </DropdownMenu>
