@@ -1,23 +1,24 @@
 <template>
   <Dialog title="Категории закладок">
-    <div class="w-[480px]">
-      <div v-if="store.categories.length" class="space-y-1">
-        <div v-for="category in store.categories" :key="category.id" class="flex items-center justify-between">
-          <label :for="`category-${category.id}`" class="space-x-1 mr-2">
-            <input type="checkbox" :id="`category-${category.id}`" :value="category.id" v-model="categories" />
-            <span>{{ category.name }}</span>
-          </label>
+    <div v-if="store.categories.length" class="space-y-1">
+      <div v-for="category in store.categories" :key="category.id" class="flex items-center justify-between">
+        <label :for="`category-${category.id}`" class="space-x-1 mr-2">
+          <input type="checkbox" :id="`category-${category.id}`" :value="category.id" v-model="categories" />
+          <span>{{ category.name }}</span>
+        </label>
+        <div class="flex items-center space-x-3">
+          <Lock v-if="category.is_private" class="w-4 h-4" />
           <button type="button" @click="onEdit(category)">
             <Pencil class="w-4 h-4" />
           </button>
         </div>
       </div>
-      <div v-else>У вас нет категорий для закладок</div>
-      <footer class="flex items-center space-x-2 mt-4">
-        <Button @click="onSubmit">Сохранить</Button>
-        <Button variant="secondary" @click="overlay.show(BookmarksCategoryForm)">Создать категорию</Button>
-      </footer>
     </div>
+    <div v-else>У вас нет категорий для закладок</div>
+    <footer class="flex items-center space-x-2 mt-4">
+      <Button @click="onSubmit">Сохранить</Button>
+      <Button variant="secondary" @click="overlay.show(BookmarksCategoryForm)">Создать категорию</Button>
+    </footer>
   </Dialog>
 </template>
 
@@ -27,6 +28,7 @@ import Dialog from '~/components/_common/Dialog.vue'
 import { Pencil } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { useBookmarksStore, useOverlay, usePageQuery, Button } from '@trevio/ui'
+import { Lock } from 'lucide-vue-next'
 
 const overlay = useOverlay()
 

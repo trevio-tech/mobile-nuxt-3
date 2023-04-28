@@ -28,7 +28,7 @@ let bookmarks = []
 if (categoryId > 0) {
   store.categories.forEach((category) => {
     if (categoryId === parseInt(category.id)) {
-      title += ` из категории «${category.name}»`
+      title += ` «${category.name}»`
     }
   })
 }

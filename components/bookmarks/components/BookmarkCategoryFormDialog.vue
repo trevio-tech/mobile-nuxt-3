@@ -4,7 +4,7 @@
       <FormField name="name" for="name" label="Название категории" required v-slot="{ hasError }">
         <Input v-model="form.name" id="name" placeholder="Введите название категории" :has-error="hasError" />
       </FormField>
-      <label for="is-private" class="flex items-center space-x-1 leading-loose mt-1 text-sm">
+      <label for="is-private" class="flex items-center space-x-1 leading-none mt-1 text-sm">
         <input type="checkbox" id="is-private" v-model="form.is_private" />
         <span>Приватная категория</span>
       </label>
