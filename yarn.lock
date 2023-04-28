@@ -1658,7 +1658,7 @@
     ufo "^1.1.1"
     uncrypto "^0.1.2"
 
-"@pinia/nuxt@^0.4.8", "@pinia/nuxt@latest":
+"@pinia/nuxt@^0.4.9", "@pinia/nuxt@latest":
   version "0.4.9"
   resolved "https://registry.yarnpkg.com/@pinia/nuxt/-/nuxt-0.4.9.tgz#de80f854cf10388523767f6080ce1cc6ea5b67e0"
   integrity sha512-ojzUMHKrQ7ZFjhWqMYKYetcqHSfgtIhjc6Hxw4alfQaGTlFdj38Vpz8Ol36YvmNdSjLFTNWYAgxEWCvg6HcSSg==
@@ -8123,7 +8123,7 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
-pinia@>=2.0.35, pinia@^2.0.34:
+pinia@>=2.0.35, pinia@^2.0.34, pinia@^2.0.35:
   version "2.0.35"
   resolved "https://registry.yarnpkg.com/pinia/-/pinia-2.0.35.tgz#aa2597038bb55ea14ad689f83065d2814ebb8c10"
   integrity sha512-P1IKKQWhxGXiiZ3atOaNI75bYlFUbRxtJdhPLX059Z7+b9Z04rnTZdSY8Aph1LA+/4QEMAYHsTQ638Wfe+6K5g==

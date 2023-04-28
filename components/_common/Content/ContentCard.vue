@@ -33,6 +33,8 @@
 
 <script setup>
 import ContentFooter from '~/components/_common/Content/partials/ContentFooter.vue'
+import useContentCard from '~/components/_common/Content/useContentCard'
+import { provide } from 'vue'
 
 const props = defineProps({
   content: {
@@ -40,6 +42,10 @@ const props = defineProps({
     required: true,
   }
 })
+
+const { bookmarks } = useContentCard(props)
+
+provide('bookmarks', bookmarks)
 
 const to = {
   albums: { name: 'albums.show', params: {albumId: props.content.id}},

@@ -11,12 +11,12 @@
   "dependencies": {
     "@nuxt-alt/auth": "2.3.11",
     "@nuxt-alt/http": "^1.6.4",
-    "@pinia/nuxt": "^0.4.8",
+    "@pinia/nuxt": "^0.4.9",
     "@trevio/ui": "https://github.com/trevio-tech/testui-3.git",
     "colorthief": "^2.4.0",
     "date-fns": "^2.29.3",
     "nuxt": "3.4.1",
-    "pinia": "^2.0.34",
+    "pinia": "^2.0.35",
     "vuedraggable": "^2.24.3"
   },
   "devDependencies": {

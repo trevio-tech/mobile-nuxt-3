@@ -1,6 +1,6 @@
 import { defineNuxtPlugin } from '#imports'
 import { watch } from 'vue'
-import { useSubscriptionsStore, usePageQuery } from '@trevio/ui'
+import { useBookmarksStore, useSubscriptionsStore, usePageQuery } from '@trevio/ui'
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   const subscriptionsStore = useSubscriptionsStore()
@@ -11,6 +11,12 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
       if (loggedIn) {
         queries.push(`
+          bookmarkCategories(user_id: ${nuxtApp.$auth.user.id})  {
+            id
+            name
+            content_count
+            is_private
+          }
           subscriptions(user_id: ${nuxtApp.$auth.user.id}) {
             model_type
             model_id
@@ -32,6 +38,10 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         })
 
         if (loggedIn) {
+          useBookmarksStore().$patch({
+            categories: data.bookmarkCategories
+          })
+
           if (data.subscriptions.length) {
             subscriptionsStore.$patch({
               subscriptions: data.subscriptions
