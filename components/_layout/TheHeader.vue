@@ -8,21 +8,9 @@
       <button @click="overlay.show(TheContentCreationDialog)" class="h-full focus:bg-slate-100 p-4 flex items-center">
         <PlusCircle class="w-5 h-5" />
       </button>
-      <DropdownMenu placement="bottom-end" class="ml-auto h-full">
-        <template v-slot:default="{ isActive }">
-          <div class="flex items-center justify-center h-full px-4" :class="{'bg-slate-100': isActive}">
-            <img :src="$auth.user.avatar" :alt="$auth.user.name" class="w-8 h-8 rounded-full block" />
-          </div>
-        </template>
-        <template v-slot:popper="{ hide }">
-          <DropdownMenuItem :to="{name: 'users.show', params: {userId: $auth.user.id}}">Мой профиль</DropdownMenuItem>
-          <DropdownMenuItem :to="{name: 'users.edit'}">Редактировать</DropdownMenuItem>
-          <DropdownMenuItem :to="{name: 'wallets.show'}">Кошелек</DropdownMenuItem>
-          <DropdownMenuItem :to="{name: 'users.premium'}">Premium</DropdownMenuItem>
-          <DropdownMenuItem :to="{name: 'subscriptions'}">Подписки</DropdownMenuItem>
-          <DropdownMenuItem @click="$auth.logout()">Выход</DropdownMenuItem>
-        </template>
-      </DropdownMenu>
+      <div @click="$emit('update:userPanel', userPanel = !userPanel)" class="flex items-center justify-center ml-auto h-full px-4">
+        <img :src="$auth.user.avatar" :alt="$auth.user.name" class="w-8 h-8 rounded-full block" />
+      </div>
     </div>
     <NuxtLink v-else to="/login" class="flex items-center ml-auto px-4 h-full">Войти</NuxtLink>
   </header>
@@ -32,6 +20,10 @@
 import TheContentCreationDialog from './TheContentCreationDialog'
 import { DropdownMenu, DropdownMenuItem, useOverlay } from '@trevio/ui'
 import { PlusCircle } from 'lucide-vue-next'
+
+defineProps({
+  userPanel: Boolean
+})
 
 const overlay = useOverlay()
 </script>
