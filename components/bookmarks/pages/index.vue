@@ -14,6 +14,8 @@ import ContentCard from '~/components/_common/Content/ContentCard.vue'
 import { ALBUM_CARD } from '~/components/albums/graphql'
 import { NOTE_CARD } from '~/components/notes/graphql'
 import { TRAVEL_CARD } from '~/components/travels/graphql'
+import { REVIEW_CARD } from '~/components/reviews/graphql'
+import { QUESTION_CARD } from '~/components/questions/graphql'
 import { useBookmarksStore, usePageQuery } from '@trevio/ui'
 import { useRoute } from '#imports'
 
@@ -36,14 +38,20 @@ if (categoryId > 0) {
 const query = `
   query ($user_id: ID!, $category_id: ID) {
     bookmarks (user_id: $user_id, category_id: $category_id) {
-      ...on Travel {
+      ... on Note {
+        ${NOTE_CARD}
+      }
+      ... on Travel {
         ${TRAVEL_CARD}
       }
-      ...on Note {
-        ${NOTE_CARD}
+      ... on Review {
+        ${REVIEW_CARD}
       }
       ...on Album {
         ${ALBUM_CARD}
+      }
+      ...on Question {
+        ${QUESTION_CARD}
       }
     }
   }

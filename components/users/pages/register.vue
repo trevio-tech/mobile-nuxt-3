@@ -9,6 +9,7 @@ import RegisterForm from '~/components/users/components/Authentication/RegisterF
 import { navigateTo, definePageMeta } from '#imports'
 
 definePageMeta({
-  middleware: ['guest'],
+  middleware: 'auth',
+  auth: 'guest'
 })
 </script>

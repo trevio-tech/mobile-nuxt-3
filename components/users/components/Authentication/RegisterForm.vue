@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="onSubmit" autocomplete="off">
+  <Form :submit="onSubmit" v-slot="{ isLoading }" autocomplete="off">
     <fieldset class="space-y-2">
       <FormField name="name" v-slot="{ hasError }">
         <Input v-model="form.name" :variant="hasError ? 'danger' : undefined" type="text" id="name" placeholder="Имя пользователя" />
@@ -30,30 +30,27 @@
       </div>
     </FormField>
 
-    <Button :loading="loading" type="submit" class="w-full mt-4">Зарегистрироваться</Button>
+    <Button :loading="isLoading" type="submit" class="w-full mt-4">Зарегистрироваться</Button>
 
     <div class="mt-4 text-xs font-medium">
       Регистрируясь, вы соглашаетесь с <NuxtLink to="/terms" class="underline">правилами пользования сайтом</NuxtLink> и даете согласие на <NuxtLink class="underline" to="/privacy">обработку персональных данных</NuxtLink>.
     </div>
 
     <SocialLogin />
-  </form>
+  </Form>
 </template>
 
 <script setup>
 import SocialLogin from './SocialLogin.vue'
 import { HelpCircle } from 'lucide-vue-next'
 import { ref } from 'vue'
-import { useForm } from 'vee-validate'
 import { defineAsyncComponent, useNuxtApp } from '#imports'
-import { usePageQuery, useOverlay, Button, Input, FormField } from '@trevio/ui'
+import { usePageQuery, useOverlay, Button, Input, Form, FormField } from '@trevio/ui'
 
 const overlay = useOverlay()
 
 const emit = defineEmits(['login'])
 const { $auth } = useNuxtApp()
-const { handleSubmit, setErrors } = useForm()
-const loading = ref(false)
 
 const form = ref({
   name: '',
@@ -63,39 +60,27 @@ const form = ref({
   is_company: false,
 })
 
-const onSubmit = handleSubmit(async () => {
-  if (loading.value) return
-
-  loading.value = true
-
-  try {
-    const { data } = await usePageQuery({
-      query: `
-        mutation ($input: RegisterUserInput!) {
-          registerUser(input: $input) {
-            id
-          }
+const onSubmit = async () => {
+  const { data } = await usePageQuery({
+    query: `
+      mutation ($input: RegisterUserInput!) {
+        registerUser(input: $input) {
+          id
         }
-      `,
-      variables: {
-        input: {...form.value}
       }
-    })
+    `,
+    variables: {
+      input: {...form.value}
+    }
+  })
 
-    if (data.registerUser === true) {
-      await $auth.loginWith('local', {body: {
+  if (data.registerUser === true) {
+    await $auth.loginWith('local', {body: {
         email:    form.value.email,
         password: form.value.password,
       }})
 
-      emit('login')
-    }
-  } catch (error) {
-    if (error[0]?.extensions?.validation) {
-      setErrors(error[0].extensions.validation)
-    }
-  } finally {
-    loading.value = false
+    emit('login')
   }
-})
+}
 </script>

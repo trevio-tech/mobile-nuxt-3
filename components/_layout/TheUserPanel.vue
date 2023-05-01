@@ -46,6 +46,12 @@
           </NuxtLink>
         </li>
         <li>
+          <NuxtLink :to="{name: 'drafts'}" class="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+            <div class="flex-shrink-0 p-2 rounded-lg bg-white"><Eraser class="w-4 h-4" /></div>
+            <div>Черновики</div>
+          </NuxtLink>
+        </li>
+        <li>
           <button @click="$auth.logout()" class="flex items-center space-x-2 bg-amber-100 rounded-lg p-1 w-full">
             <span class="flex-shrink-0 p-2 rounded-lg bg-white"><LogOut class="w-4 h-4" /></span>
             <span>Выход</span>
@@ -57,7 +63,7 @@
 </template>
 
 <script setup>
-import { Users, LogOut, Edit, FolderHeart } from 'lucide-vue-next'
+import { Users, LogOut, Edit, FolderHeart, Eraser } from 'lucide-vue-next'
 const emit = defineEmits(['update:userPanel'])
 
 defineProps({
