@@ -26,12 +26,16 @@
       </div>
     </footer>
 
-    <section v-show="showPanel" ref="panel" class="fixed h-full flex flex-col z-10">
-      <div class="flex flex-col h-full bg-gray-100/80 backdrop-blur-sm rounded-tr-lg overflow-hidden">
+    <section v-show="showPanel" ref="panel" class="fixed w-full h-full z-10">
+      <div class="absolute w-full h-full top-0 left-0 bg-black/70" @click="showPanel = !showPanel"></div>
+      <div class="w-[80%] ml-auto flex flex-col h-full bg-gray-100/80 backdrop-blur-sm overflow-hidden">
         <ul class="flex items-center cursor-pointer bg-slate-200 text-center font-medium text-sm border-b border-slate-200">
           <li @click="activeTab = 'text'" class="p-4 flex-1" :class="{'bg-slate-300': activeTab === 'text'}">Текст</li>
           <li @click="activeTab = 'brushes'" class="p-4 flex-1" :class="{'bg-slate-300': activeTab === 'brushes'}">
             Кисти
+          </li>
+          <li @click="showPanel = false" class="p-4 flex-1">
+            Закрыть
           </li>
         </ul>
 
@@ -58,7 +62,6 @@ import ShotEditorPanelBrushes from '~/components/shots/components/ShotEditorPane
 import { ref, shallowRef } from 'vue'
 import { useShotsStore, useOverlay, Button, useShotEditor, usePageQuery } from '@trevio/ui'
 import { X, Sliders } from 'lucide-vue-next'
-import { useSwipe } from '@vueuse/core'
 
 const overlay = useOverlay()
 
@@ -78,15 +81,6 @@ const lastUserTravel = ref(null)
 
 const panel = ref(null)
 const showPanel = shallowRef(false)
-
-useSwipe(panel, {
-  onSwipeEnd(event, direction) {
-    if (direction === 'right') {
-      showPanel.value = false
-    }
-  },
-  threshold: 200
-})
 
 const form = ref({
   isTravel: false,

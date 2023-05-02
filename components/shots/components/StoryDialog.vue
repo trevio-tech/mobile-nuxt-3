@@ -1,6 +1,6 @@
 <template>
-  <div class="place-self-center p-4">
-    <div class="w-[480px] h-[840px] bg-white rounded-lg overflow-hidden relative">
+  <div class="place-self-center w-full p-4">
+    <div class="h-full bg-white rounded-lg overflow-hidden relative">
       <div class="p-4 top-0 left-4 right-4 absolute">
         <div class="swiper-scrollbar"></div>
       </div>
