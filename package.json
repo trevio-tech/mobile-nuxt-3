@@ -15,6 +15,7 @@
     "@trevio/ui": "https://github.com/trevio-tech/testui-3.git",
     "colorthief": "^2.4.0",
     "date-fns": "^2.29.3",
+    "lottie-web": "^5.11.0",
     "nuxt": "^3.4.3",
     "pinia": "^2.0.35",
     "vuedraggable": "^2.24.3"

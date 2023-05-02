@@ -1,5 +1,6 @@
 <template>
   <NuxtLayout>
+    <ShotsHorizontalList :is-story="true" :items="shotsStore.stories" class="mb-2" />
     <ContentListFilter class="mb-4" />
     <div class="space-y-2">
       <ContentCard v-for="item in store.items" :key="item.id" :content="item" />
@@ -13,11 +14,12 @@
 <script setup>
 import ContentCard from '~/components/_common/Content/ContentCard.vue'
 import ContentListFilter from '~/components/_common/Content/ContentListFilter.vue'
+import ShotsHorizontalList from '~/components/shots/components/ShotsHorizontalList.vue'
 import { FEED } from '~/components/activity/graphql'
 import { shallowRef } from 'vue'
 import { useActivityStore } from '~/components/activity/store'
 import { useIntersectionObserver } from '@vueuse/core'
-import { usePageQuery } from '@trevio/ui'
+import { useShotsStore, usePageQuery } from '@trevio/ui'
 import { useRouter } from '#imports'
 
 const router = useRouter()
@@ -25,6 +27,7 @@ const store = useActivityStore()
 
 const isFetching = shallowRef()
 const more = shallowRef()
+const shotsStore = useShotsStore()
 
 router.beforeEach(async (to, from) => {
   store.$patch({

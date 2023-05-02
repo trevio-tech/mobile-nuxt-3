@@ -1,6 +1,6 @@
 <template>
   <Dialog title="Восстановление пароля">
-    <PasswordSendResetLinkForm class="w-[480px]" />
+    <PasswordSendResetLinkForm />
   </Dialog>
 </template>
 
