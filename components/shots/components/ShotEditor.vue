@@ -49,7 +49,7 @@
 <script setup>
 import ShotEditorBackground from '~/components/shots/components/ShotEditorBackground.vue'
 import ShotEditorImageButton from '~/components/shots/components/ShotEditorImageButton.vue'
-import ShotEditorStickerPanel from '~/components/shots/components/ShotEditorStickerPanel.vue'
+/*import ShotEditorStickerPanel from '~/components/shots/components/ShotEditorStickerPanel.vue'*/
 import ShotEditorTextPanel from '~/components/shots/components/ShotEditorTextPanel.vue'
 import ShotEditorTrashButton from '~/components/shots/components/ShotEditorTrashButton.vue'
 import ShotEditorPanelBrushes from '~/components/shots/components/ShotEditorPanelBrushes.vue'
