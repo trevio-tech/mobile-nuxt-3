@@ -23,7 +23,7 @@ import Dialog from '~/components/_common/Dialog.vue'
 import { shallowRef, ref } from 'vue'
 import { useQuery, Form, FormField, Button, Textarea } from '@trevio/ui'
 import { toast } from 'vue3-toastify'
-
+import 'vue3-toastify/dist/index.css'
 
 const emits = defineEmits(['success'])
 const props = defineProps<{
