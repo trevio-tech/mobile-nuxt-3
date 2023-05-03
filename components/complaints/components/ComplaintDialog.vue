@@ -69,10 +69,10 @@ const onSubmit = async () => {
   })
 
   if (data.createComplaint) {
-    toast.success('Жалоба отправлена!', {
-      theme:      'dark',
+    toast.success('Ваша жалоба отправлена!', {
       position:   'top-center',
       transition: 'slide',
+      autoClose:  1000,
     })
 
     emits('success')
