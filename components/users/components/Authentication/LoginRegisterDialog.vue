@@ -1,7 +1,7 @@
 <template>
   <div class="place-self-top w-full p-4">
     <div class="flex items-center justify-center overflow-hidden rounded-lg">
-      <div class="flex justify-center flex-col px-4 py-8 bg-white h-full flex-shrink-0 overflow-y-auto">
+      <div class="flex justify-center flex-col px-4 py-8 bg-white h-full w-full flex-shrink-0 overflow-y-auto">
         <NuxtLink to="/" class="block mb-10" title="Trevio.ru - о путешествиях">
           <img src="/images/logotype.svg" alt="Trevio.ru - о путешествиях" class="mx-auto" />
         </NuxtLink>
